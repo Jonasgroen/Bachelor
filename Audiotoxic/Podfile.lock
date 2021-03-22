@@ -1,0 +1,31 @@
+PODS:
+  - AudioKit (4.11.2):
+    - AudioKit/Core (= 4.11.2)
+    - AudioKit/UI (= 4.11.2)
+  - AudioKit/Core (4.11.2)
+  - AudioKit/UI (4.11.2):
+    - AudioKit/Core
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
+  - TinyConstraints (4.0.1)
+
+DEPENDENCIES:
+  - AudioKit
+  - Charts
+  - TinyConstraints
+
+SPEC REPOS:
+  trunk:
+    - AudioKit
+    - Charts
+    - TinyConstraints
+
+SPEC CHECKSUMS:
+  AudioKit: 57cc61d708f085763a031e5c3f87adae21dc4b59
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
+
+PODFILE CHECKSUM: 7f6442364a2734e3fbd05ff03e10f333ae09f8c7
+
+COCOAPODS: 1.10.0
