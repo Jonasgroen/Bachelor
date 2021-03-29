@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class ProfileViewController: UIViewController {
     
@@ -43,6 +44,7 @@ class ProfileViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     override func viewDidLoad() {
+        openDatabse()
         super.viewDidLoad()
         
        //printUserDefaults()
@@ -77,4 +79,51 @@ class ProfileViewController: UIViewController {
         UserDefaults.standard.synchronize() }
 
 
-}
+    // MARK: Variables declearations
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate //Singlton instance
+        var context:NSManagedObjectContext!
+
+        // MARK: View Controller life cycle methods
+
+        // MARK: Methods to Open, Store and Fetch data
+        func openDatabse()
+        {
+            context = appDelegate.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "Entity", in: context)
+            let newUser = NSManagedObject(entity: entity!, insertInto: context)
+            saveData(UserDBObj:newUser)
+        }
+
+        func saveData(UserDBObj:NSManagedObject)
+        {
+            
+            UserDBObj.setValue("jonas", forKey: "name")
+
+            print("Storing Data..")
+            do {
+                try context.save()
+            } catch {
+                print("Storing data Failed")
+            }
+
+            fetchData()
+            
+        }
+
+        func fetchData()
+        {
+            print("Fetching Data..")
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
+            request.returnsObjectsAsFaults = false
+            do {
+                let result = try context.fetch(request)
+                for data in result as! [NSManagedObject] {
+                    let name = data.value(forKey: "name") as! String
+                    print("name is : "+name)
+                }
+            } catch {
+                print("Fetching data Failed")
+            }
+        }
+    }
+

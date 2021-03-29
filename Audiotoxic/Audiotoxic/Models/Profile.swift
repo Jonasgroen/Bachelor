@@ -64,8 +64,6 @@ class Profile {
         var max = 0
         formatter.dateFormat = "dd/MM/yyyy"
         for item in self.results where (formatter.string(from: item.date) == formatter.string(from: date)) {
-            print(item.date)
-            print(item.maxFrequency)
             if item.maxFrequency > max {
                 max = item.maxFrequency
             }

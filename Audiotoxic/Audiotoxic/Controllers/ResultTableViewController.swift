@@ -17,8 +17,6 @@ class ResultTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         print(profile.results)
         
         selectedReading = Reading(frequency: 0)
