@@ -70,37 +70,28 @@
                                 <rect key="frame" x="-55" y="-28" width="706" height="866"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Is an Ototoxic Drug?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR6-7g-ihW">
-                                <rect key="frame" x="101" y="204.5" width="212.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR6-7g-ihW">
+                                <rect key="frame" x="101" y="198" width="212.5" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="212.5" id="dod-s8-UaD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5y-Hq-pxU">
-                                <rect key="frame" x="5" y="262.5" width="404" height="623.5"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tw1-uW-8gY">
-                                        <rect key="frame" x="8" y="-4" width="388" height="627.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Tw1-uW-8gY" secondAttribute="bottom" id="8fV-EO-9GB"/>
-                                    <constraint firstItem="Tw1-uW-8gY" firstAttribute="leading" secondItem="B5y-Hq-pxU" secondAttribute="leadingMargin" id="E0a-bQ-Cs4"/>
-                                    <constraint firstItem="Tw1-uW-8gY" firstAttribute="centerX" secondItem="B5y-Hq-pxU" secondAttribute="centerX" id="JeQ-ts-2s5"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Tw1-uW-8gY" secondAttribute="trailing" id="Mzv-HB-0em"/>
-                                    <constraint firstItem="Tw1-uW-8gY" firstAttribute="top" secondItem="B5y-Hq-pxU" secondAttribute="top" constant="-4" id="dAY-5i-KC9"/>
-                                    <constraint firstItem="Tw1-uW-8gY" firstAttribute="bottom" secondItem="CNE-Wm-aGM" secondAttribute="bottom" id="saT-q4-zao"/>
-                                </constraints>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5y-Hq-pxU">
+                                <rect key="frame" x="5" y="344" width="404" height="542"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="1kI-3j-MAq"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="CNE-Wm-aGM"/>
                             </scrollView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="There is a lot of information on Ototoxicity, so we have divided into the sections below, including information about this app." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-7a-jeT">
+                                <rect key="frame" x="32" y="251" width="350" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="50a-nZ-eiB"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,7 +106,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="info" catalog="system" id="sor-eT-XUX"/>
                     <connections>
-                        <outlet property="infoTextView" destination="Tw1-uW-8gY" id="0df-5w-m9I"/>
+                        <outlet property="openingText" destination="kcw-7a-jeT" id="gGX-NF-59Y"/>
+                        <outlet property="scrollView" destination="B5y-Hq-pxU" id="2Vv-dR-Rca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGp-Az-IOO" userLabel="First Responder" sceneMemberID="firstResponder"/>

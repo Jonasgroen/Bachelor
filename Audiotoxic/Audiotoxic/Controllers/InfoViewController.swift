@@ -1,21 +1,91 @@
 import UIKit
 
-class InfoViewController: UIViewController {
+class Section {
+    let title: String
+    let description: String
+    var isExpanded: Bool = false
+    
+    init(title: String, description: String, isExpanded: Bool = false) {
+        self.title = title
+        self.description = description
+        self.isExpanded = isExpanded
+    }
+}
 
+class InfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var openingText: UITextView!
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableView
+    }()
+    
+    private var sections = [Section]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setText()
+        
+        sections = [
+            Section(title: "Otoxic Drugs", description: "description"),
+            Section(title: "Diagnosis and this app", description: "description"),
+            Section(title: "Treatment", description: "description"),
+            Section(title: "How Audiotoxic works", description: "description"),
+            Section(title: "Read more about Ototoxicity", description: "description")
+        ]
+        
+        scrollView.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.frame = scrollView.bounds
+        //setText()
 
         // Do any additional setup after loading the view.
     }
     
-
-
-    @IBOutlet weak var infoTextView: UITextView!
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let section = sections[section]
+        
+        if(section.isExpanded){
+            return 2
+        }
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+                                                 for: indexPath)
+        
+        if(indexPath.row == 0){
+            cell.textLabel?.text = sections[indexPath.section].title
+        } else {
+            cell.textLabel?.text = sections[indexPath.section].description
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if(indexPath.row == 0){
+            sections[indexPath.section].isExpanded = !sections[indexPath.section].isExpanded
+            tableView.reloadSections([indexPath.section], with: .none)
+        }
+    }
     
     func setText(){
-        infoTextView.textContainer.lineBreakMode = NSLineBreakMode.byCharWrapping
-        infoTextView.text =
+        openingText.textContainer.lineBreakMode = NSLineBreakMode.byCharWrapping
+        openingText.text =
         "According to Neil Bauman, Ph.D., “Ototoxic drugs are those medications that can cause ototoxic (ear damaging) side effects to your ears. Such drugs can cause hearing loss, hyperacusis, tinnitus, and other phantom sounds and a whole host of balance problems.” Although physician-prescribed medications may effectively treat a specific health condition, they can also damage the fragile hair cells in the inner ear, impacting a person’s ability to hear and balance (source).\n\n" +
             
         "Tinnitus, of course, does not afflict everyone who takes drugs. Even if a drug’s description lists tinnitus as a side effect, it does not mean that you will develop tinnitus if you take it. Some people do. Many don’t. However, it is still important to learn the side effects of any drug you take. That way, you can react accordingly if you do develop a side effect. To evaluate your level of tinnitus or hyperacusis, take our tinnitus and hyperacusis impact surveys. According to Neil Bauman, Ph.D., “Ototoxic drugs are those medications that can cause ototoxic (ear damaging) side effects to your ears. Such drugs can cause hearing loss, hyperacusis, tinnitus, and other phantom sounds and a whole host of balance problems.” Although physician-prescribed medications may effectively treat a specific health condition, they can also damage the fragile hair cells in the inner ear, impacting a person’s ability to hear and balance (source).\n\n" +
