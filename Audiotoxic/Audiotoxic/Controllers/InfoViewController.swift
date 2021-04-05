@@ -31,11 +31,18 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         sections = [
-            Section(title: "Otoxic Drugs", description: "description"),
-            Section(title: "Diagnosis and this app", description: "description"),
-            Section(title: "Treatment", description: "description"),
-            Section(title: "How Audiotoxic works", description: "description"),
-            Section(title: "Read more about Ototoxicity", description: "description")
+            Section(title: "What is an Ototoxic drug?",
+                    description: "Certain medications can damage the ear, resulting in hearing loss, ringing in the ear, or balance disorders. These drugs are considered ototoxic. There are more than 200 known ototoxic medications (prescription and over-the-counter) on the market today. These include medicines used to treat serious infections, cancer, and heart disease."),
+            Section(title: "Signs and Symptoms",
+                    description: "description"),
+            Section(title: "Diagnosis",
+                    description: "description"),
+            Section(title: "Treatment",
+                    description: "description"),
+            Section(title: "How the Audiotoxic app can help you",
+                    description: "description"),
+            Section(title: "Read more about Ototoxicity",
+                    description: "description")
         ]
         
         scrollView.addSubview(tableView)
@@ -69,6 +76,8 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.textLabel?.text = sections[indexPath.section].title
         } else {
             cell.textLabel?.text = sections[indexPath.section].description
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = .byWordWrapping
         }
         
         return cell

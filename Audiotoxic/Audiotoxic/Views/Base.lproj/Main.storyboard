@@ -70,7 +70,14 @@
                                 <rect key="frame" x="-55" y="-28" width="706" height="866"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR6-7g-ihW">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="There is a lot of information on Ototoxicity, so we have divided into the sections below, including information about this app." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-7a-jeT">
+                                <rect key="frame" x="32" y="251" width="350" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR6-7g-ihW">
                                 <rect key="frame" x="101" y="198" width="212.5" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="212.5" id="dod-s8-UaD"/>
@@ -84,23 +91,16 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="1kI-3j-MAq"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="CNE-Wm-aGM"/>
                             </scrollView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="There is a lot of information on Ototoxicity, so we have divided into the sections below, including information about this app." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-7a-jeT">
-                                <rect key="frame" x="32" y="251" width="350" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="50a-nZ-eiB"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="50a-nZ-eiB" firstAttribute="trailing" secondItem="B5y-Hq-pxU" secondAttribute="trailing" constant="5" id="ch7-gt-TJW"/>
                             <constraint firstItem="qR6-7g-ihW" firstAttribute="centerX" secondItem="CyA-Xt-XR5" secondAttribute="centerX" id="crb-3Q-fYC"/>
+                            <constraint firstItem="kcw-7a-jeT" firstAttribute="top" secondItem="qR6-7g-ihW" secondAttribute="bottom" constant="26" id="deU-KN-61f"/>
                             <constraint firstItem="B5y-Hq-pxU" firstAttribute="top" secondItem="CyA-Xt-XR5" secondAttribute="top" constant="262.5" id="gjU-mF-e2H"/>
                             <constraint firstItem="B5y-Hq-pxU" firstAttribute="leading" secondItem="50a-nZ-eiB" secondAttribute="leading" constant="5" id="h85-FD-qv0"/>
-                            <constraint firstItem="B5y-Hq-pxU" firstAttribute="top" secondItem="qR6-7g-ihW" secondAttribute="bottom" constant="37.5" id="s6K-re-Zxc"/>
+                            <constraint firstItem="B5y-Hq-pxU" firstAttribute="top" secondItem="kcw-7a-jeT" secondAttribute="bottom" constant="33" id="lOM-t7-5tK"/>
                             <constraint firstAttribute="bottom" secondItem="B5y-Hq-pxU" secondAttribute="bottom" constant="10" id="tK7-Tl-51f"/>
                         </constraints>
                     </view>
