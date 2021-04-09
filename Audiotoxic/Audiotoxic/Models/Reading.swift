@@ -6,7 +6,7 @@ class Reading {
     var maxFrequency: Int
     
     init(frequency: Int) {
-        maxFrequency = frequency
-        date = Date.init()
+        self.maxFrequency = frequency
+        self.date = Date.init()
     }
 }

@@ -10,8 +10,10 @@ class ProfileViewController: UIViewController {
     
     var gender = true
     let vc = TabBarViewController()
+    let profile = Profile()
     
     @IBAction func save(_ sender: Any) {
+
         if (name.text != "") {
             profileSaved.alpha = 1
             profileSaved.text = ""
@@ -20,10 +22,10 @@ class ProfileViewController: UIViewController {
             } else {
                 gender = false
             }
-            let profile = Profile()
+            
             profile.name = self.name.text!
             profile.sex = gender
-            profile.dateOfBirth = self.datePick.date
+            profile.dateOfBirth = self.datePick.date.addingTimeInterval(7200.0)
             profile.saveProfile()
             //Shows the text profilesaved for 2 seconds!
             UIView.animate(withDuration: 2) {
@@ -44,29 +46,21 @@ class ProfileViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     override func viewDidLoad() {
-        openDatabse()
+        
         super.viewDidLoad()
+        var index = 0
         
-       //printUserDefaults()
-        //clearUserDefaults()
-
         datePick.maximumDate = Date.init()
-        
-        if(UserDefaults.standard.object(forKey: "name") != nil){
-            var index = 0
             
-            let profile = Profile()
-            profile.loadProfile()
-            name.text = profile.name
-            datePick.date = profile.dateOfBirth
-            if(profile.sex){
-                index = 0
-            } else {
-                index = 1
-            }
-            sex.selectedSegmentIndex = index
-            
+        profile.loadProfile()
+        name.text = profile.name
+        datePick.date = profile.dateOfBirth
+        if(profile.sex){
+            index = 0
+        } else {
+            index = 1
         }
+        sex.selectedSegmentIndex = index
     }
     
     func printUserDefaults(){
@@ -77,53 +71,5 @@ class ProfileViewController: UIViewController {
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize() }
-
-
-    // MARK: Variables declearations
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate //Singlton instance
-        var context:NSManagedObjectContext!
-
-        // MARK: View Controller life cycle methods
-
-        // MARK: Methods to Open, Store and Fetch data
-        func openDatabse()
-        {
-            context = appDelegate.persistentContainer.viewContext
-            let entity = NSEntityDescription.entity(forEntityName: "Entity", in: context)
-            let newUser = NSManagedObject(entity: entity!, insertInto: context)
-            saveData(UserDBObj:newUser)
-        }
-
-        func saveData(UserDBObj:NSManagedObject)
-        {
-            
-            UserDBObj.setValue("jonas", forKey: "name")
-
-            print("Storing Data..")
-            do {
-                try context.save()
-            } catch {
-                print("Storing data Failed")
-            }
-
-            fetchData()
-            
-        }
-
-        func fetchData()
-        {
-            print("Fetching Data..")
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
-            request.returnsObjectsAsFaults = false
-            do {
-                let result = try context.fetch(request)
-                for data in result as! [NSManagedObject] {
-                    let name = data.value(forKey: "name") as! String
-                    print("name is : "+name)
-                }
-            } catch {
-                print("Fetching data Failed")
-            }
-        }
-    }
+}
 

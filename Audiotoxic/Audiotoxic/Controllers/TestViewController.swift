@@ -147,7 +147,7 @@ class TestViewController: UIViewController {
         osciliator.amplitude = calculateVolume(dB: dB)
         osciliator.rampDuration = 0.25
         panner = AKPanner(osciliator, pan: (isLeftEar) ? -1 : 1)
-        
+        AudioKit.AKManager.output = panner //Remember to set output as panner
         do{
             try AudioKit.AKManager.start()
         }catch{

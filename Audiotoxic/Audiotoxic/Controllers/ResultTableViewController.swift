@@ -12,7 +12,9 @@ class ResultTableViewController: UITableViewController {
         profile.loadProfile()
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            
         }
+        
     }
     
     override func viewDidLoad() {
