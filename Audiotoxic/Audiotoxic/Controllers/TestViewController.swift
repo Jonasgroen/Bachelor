@@ -16,6 +16,7 @@ class TestViewController: UIViewController {
     var dBOfFinalReading = 0
     var profile = Profile()
     var panner: AKPanner!
+    var heardAt40 = false
     
     
     let queue = DispatchQueue(label: "audio-queue")
@@ -36,39 +37,6 @@ class TestViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
-    /*@IBAction func soundButton(_ sender: Any) {
-     if (isTestRunning) {
-     if (isAudioOn) {
-     maxFreq = currentFreq
-     dBOfFinalReading = currentdB
-     }
-     } else {
-     isTestRunning = true
-     LabelInTest.text = "Press the red button when you hear the sound."
-     testButton.setImage(UIImage(named: "stopBtn"), for: .normal)
-     queue.async {
-     self.waitRandom()
-     self.createTone(freq: 8000)
-     self.waitRandom()
-     self.createTone(freq: 10000)
-     self.waitRandom()
-     self.createTone(freq: 12500)
-     self.waitRandom()
-     self.createTone(freq: 14000)
-     self.waitRandom()
-     self.createTone(freq: 16000)
-     self.isTestRunning = false
-     let reading = Reading(frequency: self.maxFreq)
-     print(reading.maxFrequency)
-     print(reading.date)
-     if self.profile.okToSave(date: reading.date, freq: reading.maxFrequency){
-     self.profile.results.append(reading)
-     self.profile.saveProfile()
-     }
-     }
-     }
-     }*/
     
     func createTone(freq: Double){
         currentFreq = Int(freq)
@@ -99,35 +67,58 @@ class TestViewController: UIViewController {
                 print(maxFreq)
                 maxFreq = currentFreq
                 dBOfFinalReading = currentdB
+                if(currentdB == 40){
+                    heardAt40 = true
+                }
             }
         } else {
             isTestRunning = true
             LabelInTest.text = "Press the red button when you hear the sound."
             testButton.setImage(UIImage(named: "stopBtn"), for: .normal)
             improvedAlgorithm(leftEar: true)
-            //Make sure that the first test has finished
+            //TO-DO:
+            //Ensure that the next algorithm is run AFTER the first has FINISHED
             //improvedAlgorithm(leftEar: false)
         }
     }
     
     func improvedAlgorithm(leftEar: Bool){
+        //TO-DO:
+        //Make it so that if they can hear the sound at 40dB, it will not play at 80dB
         queue.async {
             self.waitRandom()
             self.createTone(freq: 10000, dB: 40, isLeftEar: leftEar)
             self.waitRandom()
-            self.createTone(freq: 10000, dB: 80, isLeftEar: leftEar)
-            self.waitRandom()
+            if(!self.heardAt40){
+                self.createTone(freq: 10000, dB: 80, isLeftEar: leftEar)
+                self.waitRandom()
+            } else {
+                self.heardAt40 = false
+            }
             self.createTone(freq: 12500, dB: 40, isLeftEar: leftEar)
             self.waitRandom()
-            self.createTone(freq: 12500, dB: 80, isLeftEar: leftEar)
-            self.waitRandom()
+            if(!self.heardAt40){
+                self.createTone(freq: 12500, dB: 80, isLeftEar: leftEar)
+                self.waitRandom()
+            } else {
+                self.heardAt40 = false
+            }
             self.createTone(freq: 14000, dB: 40, isLeftEar: leftEar)
             self.waitRandom()
-            self.createTone(freq: 14000, dB: 80, isLeftEar: leftEar)
-            self.waitRandom()
+            if(!self.heardAt40){
+                self.createTone(freq: 14000, dB: 80, isLeftEar: leftEar)
+                self.waitRandom()
+            } else {
+                self.heardAt40 = false
+            }
             self.createTone(freq: 16000, dB: 40, isLeftEar: leftEar)
             self.waitRandom()
-            self.createTone(freq: 16000, dB: 80, isLeftEar: leftEar)
+            if(!self.heardAt40){
+                self.createTone(freq: 16000, dB: 80, isLeftEar: leftEar)
+                self.waitRandom()
+            } else {
+                self.heardAt40 = false
+            }
             self.isTestRunning = false
             let reading = Reading(frequency: self.maxFreq)
             print(reading.maxFrequency)
@@ -166,7 +157,7 @@ class TestViewController: UIViewController {
         
         //osciliator.stop()
         isAudioOn = false
-        DispatchQueue.main.async { //Hvorfor er det her? Er det når testen slutter at den går tilbage ved sidste tryk?
+        DispatchQueue.main.async {
             if (!self.isTestRunning) {
                 self.LabelInTest.text = "Press the start button to begin the test!"
                 self.testButton.setImage(UIImage(named: "startBtn"), for: .normal)
