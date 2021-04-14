@@ -76,15 +76,18 @@ class TestViewController: UIViewController {
             LabelInTest.text = "Press the red button when you hear the sound."
             testButton.setImage(UIImage(named: "stopBtn"), for: .normal)
             improvedAlgorithm(leftEar: true)
-            //TO-DO:
-            //Ensure that the next algorithm is run AFTER the first has FINISHED
-            //improvedAlgorithm(leftEar: false)
         }
     }
     
     func improvedAlgorithm(leftEar: Bool){
         //TO-DO:
         //Make it so that if they can hear the sound at 40dB, it will not play at 80dB
+        // - Done
+        //Make it recall the algorithm on the right ear
+        // - Done
+        // - Need to change the button back (as it does at the end of createTone
+        //Make it save both ears
+        // - In progress
         queue.async {
             self.waitRandom()
             self.createTone(freq: 10000, dB: 40, isLeftEar: leftEar)
@@ -119,13 +122,18 @@ class TestViewController: UIViewController {
             } else {
                 self.heardAt40 = false
             }
-            self.isTestRunning = false
             let reading = Reading(frequency: self.maxFreq)
             print(reading.maxFrequency)
             print(reading.date)
-            if self.profile.okToSave(date: reading.date, freq: reading.maxFrequency){
-                self.profile.results.append(reading)
-                self.profile.saveProfile()
+            print("is left ear: " + leftEar.description)
+            if(leftEar){
+                self.improvedAlgorithm(leftEar: false)
+            } else {
+                self.isTestRunning = false
+                if self.profile.okToSave(date: reading.date, freq: reading.maxFrequency){
+                    self.profile.results.append(reading)
+                    self.profile.saveProfile()
+                }
             }
         }
     }
