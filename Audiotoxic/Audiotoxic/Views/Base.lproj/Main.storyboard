@@ -70,38 +70,41 @@
                                 <rect key="frame" x="-55" y="-28" width="706" height="866"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="There is a lot of information on Ototoxicity, so we have divided into the sections below, including information about this app." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-7a-jeT">
-                                <rect key="frame" x="32" y="251" width="350" height="60"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR6-7g-ihW">
-                                <rect key="frame" x="101" y="198" width="212.5" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="212.5" id="dod-s8-UaD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5y-Hq-pxU">
                                 <rect key="frame" x="5" y="344" width="404" height="542"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="1kI-3j-MAq"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="CNE-Wm-aGM"/>
                             </scrollView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="There is a lot of information on Ototoxicity, so we have divided into the sections below, including information about this app." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-7a-jeT">
+                                <rect key="frame" x="32" y="274" width="350" height="68"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="Xc2-XY-739"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR6-7g-ihW">
+                                <rect key="frame" x="101" y="239" width="212" height="27"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="50a-nZ-eiB"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kcw-7a-jeT" firstAttribute="top" secondItem="CyA-Xt-XR5" secondAttribute="top" constant="274" id="0eL-Ju-QYs"/>
+                            <constraint firstItem="B5y-Hq-pxU" firstAttribute="top" secondItem="kcw-7a-jeT" secondAttribute="bottom" constant="2" id="6bV-3x-zdh"/>
+                            <constraint firstItem="kcw-7a-jeT" firstAttribute="leading" secondItem="50a-nZ-eiB" secondAttribute="leading" constant="32" id="OOj-Zl-N38"/>
+                            <constraint firstItem="kcw-7a-jeT" firstAttribute="centerX" secondItem="qR6-7g-ihW" secondAttribute="centerX" id="VYy-BT-F1n"/>
+                            <constraint firstItem="kcw-7a-jeT" firstAttribute="top" secondItem="qR6-7g-ihW" secondAttribute="bottom" constant="8" id="cIK-w3-tP0"/>
                             <constraint firstItem="50a-nZ-eiB" firstAttribute="trailing" secondItem="B5y-Hq-pxU" secondAttribute="trailing" constant="5" id="ch7-gt-TJW"/>
-                            <constraint firstItem="qR6-7g-ihW" firstAttribute="centerX" secondItem="CyA-Xt-XR5" secondAttribute="centerX" id="crb-3Q-fYC"/>
-                            <constraint firstItem="kcw-7a-jeT" firstAttribute="top" secondItem="qR6-7g-ihW" secondAttribute="bottom" constant="26" id="deU-KN-61f"/>
-                            <constraint firstItem="B5y-Hq-pxU" firstAttribute="top" secondItem="CyA-Xt-XR5" secondAttribute="top" constant="262.5" id="gjU-mF-e2H"/>
                             <constraint firstItem="B5y-Hq-pxU" firstAttribute="leading" secondItem="50a-nZ-eiB" secondAttribute="leading" constant="5" id="h85-FD-qv0"/>
-                            <constraint firstItem="B5y-Hq-pxU" firstAttribute="top" secondItem="kcw-7a-jeT" secondAttribute="bottom" constant="33" id="lOM-t7-5tK"/>
+                            <constraint firstItem="qR6-7g-ihW" firstAttribute="centerX" secondItem="B5y-Hq-pxU" secondAttribute="centerX" id="rXN-JC-dKb"/>
                             <constraint firstAttribute="bottom" secondItem="B5y-Hq-pxU" secondAttribute="bottom" constant="10" id="tK7-Tl-51f"/>
+                            <constraint firstItem="qR6-7g-ihW" firstAttribute="leading" secondItem="50a-nZ-eiB" secondAttribute="leading" constant="101" id="tMe-jp-fgH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="info" catalog="system" id="sor-eT-XUX"/>
