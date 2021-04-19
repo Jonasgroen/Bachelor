@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
                 
                 self.profile.name = self.name.text!
                 self.profile.sex = self.gender
+                // adding 7200 second to get the right timeZone.
                 self.profile.dateOfBirth = self.datePick.date.addingTimeInterval(7200.0)
                 self.profile.saveProfile()
                 //Shows the text profilesaved for 2 seconds!
@@ -35,14 +36,14 @@ class ProfileViewController: UIViewController {
                     self.profileSaved.text = "Profile saved!"
                     self.profileSaved.alpha = 0
                 }
-                
+                if let tabBarItem = self.tabBarController?.tabBar.items?[1] {
+                    tabBarItem.isEnabled = true
+                }
+                if let tabBarItem = self.tabBarController?.tabBar.items?[3] {
+                    tabBarItem.isEnabled = true
+                }
             }
-            if let tabBarItem = self.tabBarController?.tabBar.items?[1] {
-                tabBarItem.isEnabled = true
-            }
-            if let tabBarItem = self.tabBarController?.tabBar.items?[3] {
-                tabBarItem.isEnabled = true
-            }
+            
         }))
 
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in

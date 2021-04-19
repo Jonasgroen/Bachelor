@@ -12,9 +12,12 @@ class TabBarViewController: UITabBarController {
     
     @IBOutlet weak var TabBarItems: UITabBar!
     
+    let profile = Profile()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(UserDefaults.standard.object(forKey: "name")==nil){
+        profile.loadProfile()
+        if(profile.name == ""){
             if (TabBarItems?.items != nil) {
                 let tabBarControllerItems = TabBarItems.items
                 if let tabArray = tabBarControllerItems {

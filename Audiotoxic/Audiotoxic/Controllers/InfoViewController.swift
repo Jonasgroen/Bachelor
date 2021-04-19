@@ -6,6 +6,8 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var openingText: UITextView!
     
+    let profile = Profile()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -17,6 +19,12 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (profile.name == "") {
+            print("hey")
+            
+        }
+            
         
         loadSections()
         
