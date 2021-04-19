@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E68054FB2B55A09AD34EF6A /* Pods_Audiotoxic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75704A77556255251A50834A /* Pods_Audiotoxic.framework */; };
+		3AE6CB7826247E990057D336 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6CB7726247E990057D336 /* Section.swift */; };
 		3F6F98B7254D896B001111BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F98B6254D896B001111BC /* AppDelegate.swift */; };
 		3F6F98BC254D896B001111BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6F98BA254D896B001111BC /* Main.storyboard */; };
 		3F6F98BE254D896C001111BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6F98BD254D896C001111BC /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		1F97A0824B61039CEC193683 /* Pods-Audiotoxic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Audiotoxic.release.xcconfig"; path = "Target Support Files/Pods-Audiotoxic/Pods-Audiotoxic.release.xcconfig"; sourceTree = "<group>"; };
+		3AE6CB7726247E990057D336 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		3F6F98B3254D896B001111BC /* Audiotoxic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Audiotoxic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6F98B6254D896B001111BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F6F98BB254D896B001111BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				3F6F98D7254D9262001111BC /* Reading.swift */,
 				3F6F98DB254D99B3001111BC /* ReadingManager.swift */,
 				DDB967B525891BCB00329344 /* DateAxisValueFormatter.swift */,
+				3AE6CB7726247E990057D336 /* Section.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				DDB967B625891BCB00329344 /* DateAxisValueFormatter.swift in Sources */,
 				3F6F98D4254D9051001111BC /* ResultDetailsViewController.swift in Sources */,
 				3F6F98CC254D8F3D001111BC /* TestViewController.swift in Sources */,
+				3AE6CB7826247E990057D336 /* Section.swift in Sources */,
 				DDB967A22587A21300329344 /* TabBarViewController.swift in Sources */,
 				3F6F98DC254D99B3001111BC /* ReadingManager.swift in Sources */,
 				3F6F98D8254D9262001111BC /* Reading.swift in Sources */,
