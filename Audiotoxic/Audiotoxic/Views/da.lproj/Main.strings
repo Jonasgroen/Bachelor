@@ -1,0 +1,57 @@
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "1rH-ys-CBx"; */
+"1rH-ys-CBx.placeholder" = "Navn";
+
+/* Class = "UITabBarItem"; title = "Result"; ObjectID = "DFb-vm-I1B"; */
+"DFb-vm-I1B.title" = "Resultater";
+
+/* Class = "UITableViewController"; title = "ResultTableViewController"; ObjectID = "SFC-T8-vpE"; */
+"SFC-T8-vpE.title" = "ResultTableViewController";
+
+/* Class = "UILabel"; text = "Press the start button to begin the test!"; ObjectID = "b7n-t5-zQR"; */
+"b7n-t5-zQR.text" = "Tryk på start knappen for at begynde testen!";
+
+/* Class = "UILabel"; text = "Reading details"; ObjectID = "buD-xH-Ild"; */
+"buD-xH-Ild.text" = "Måling detaljer";
+
+/* Class = "UITabBarItem"; title = "Test"; ObjectID = "daV-Mn-642"; */
+"daV-Mn-642.title" = "Test";
+
+/* Class = "UISegmentedControl"; e3l-ZF-bC4.segmentTitles[0] = "Male"; ObjectID = "e3l-ZF-bC4"; */
+"e3l-ZF-bC4.segmentTitles[0]" = "Mand";
+
+/* Class = "UISegmentedControl"; e3l-ZF-bC4.segmentTitles[1] = "Female"; ObjectID = "e3l-ZF-bC4"; */
+"e3l-ZF-bC4.segmentTitles[1]" = "Kvinde";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "emb-kw-XH0"; */
+"emb-kw-XH0.title" = "Profil";
+
+/* Class = "UITextView"; text = "There is a lot of information on Ototoxicity, so we have divided into the sections below, including information about this app."; ObjectID = "kcw-7a-jeT"; */
+"kcw-7a-jeT.text" = "Der er meget information omkring Ototoksi, så vi har inddelt det i sektioner herunder, inklusiv information omkring denne app.";
+
+/* Class = "UILabel"; text = "Information"; ObjectID = "qR6-7g-ihW"; */
+"qR6-7g-ihW.text" = "Information";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "sle-gt-PwX"; */
+"sle-gt-PwX.normalTitle" = "Gem";
+
+/* Class = "UITabBarItem"; title = "Info"; ObjectID = "sor-eT-XUX"; */
+"sor-eT-XUX.title" = "Info";
+
+/* Class = "UIViewController"; title = "profileViewController"; ObjectID = "tIv-iI-bYe"; */
+"tIv-iI-bYe.title" = "profileViewController";
+
+/* Class = "UIViewController"; title = "InfoViewController"; ObjectID = "tZc-oD-M5j"; */
+"tZc-oD-M5j.title" = "InfoViewController";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "u8I-F2-dA3"; */
+"u8I-F2-dA3.text" = "Etiket";
+
+/* Class = "UIViewController"; title = "TestViewController"; ObjectID = "wL4-C2-wqI"; */
+"wL4-C2-wqI.title" = "TestViewController";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "yi2-Vq-lcT"; */
+"yi2-Vq-lcT.normalTitle" = "Knap";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zsB-8h-eMM"; */
+"zsB-8h-eMM.text" = "Etiket";
