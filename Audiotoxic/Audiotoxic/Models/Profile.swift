@@ -26,7 +26,8 @@ class Profile {
         let entity = NSEntityDescription.entity(forEntityName: "Entity", in: context)
         let newUser = NSManagedObject(entity: entity!, insertInto: context)
         
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(abbreviation: "GMT+1:00")
         numberOfReadings = results.count
         
         newUser.setValue(name, forKey: "name")
@@ -37,7 +38,7 @@ class Profile {
         var readingData: [String] = []
         
         for reading in results {
-            readingData = [reading.date.description, reading.maxFrequency.description]
+            readingData = [reading.date.description, reading.maxFrequency.description, reading.leftEar.description]
             readingArray.append(contentsOf: readingData)
         }
         
@@ -91,15 +92,14 @@ class Profile {
                         print(myData)
                         let stringAsData = myData.data(using: String.Encoding.utf16)
                         let readingArray: [String] = try! JSONDecoder().decode([String].self, from: stringAsData!)
-                        for i in stride(from: 0, to: readingArray.count, by: 2) {
+                        for i in stride(from: 0, to: readingArray.count, by: 3) {
                             let dateFormatterGet = DateFormatter()
-                            dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss +0000"
-
-                            let date: Date? = dateFormatterGet.date(from: readingArray[i]) as Date?
+                            dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
+                            dateFormatterGet.timeZone = TimeZone(abbreviation: "GMT+1:00")
+                            let date = dateFormatterGet.date(from: readingArray[i])
                             let freq = Int(readingArray[i+1])
-                            print(date!)
-                            print(freq ?? 0)
-                            let newReading = Reading(frequency: freq!)
+                            let leftEar = Bool(readingArray[i+2])!
+                            let newReading = Reading(frequency: freq!, leftEar: leftEar)
                             newReading.date = date!
                             results.append(newReading)
                         }
@@ -114,16 +114,18 @@ class Profile {
         }
     }
     
-    func okToSave(date: Date, freq: Int) -> Bool{
+    func okToSave(date: Date, freq: Int, leftEar: Bool) -> Bool{
         var max = 0
-        formatter.dateFormat = "dd/MM/yyyy"
+    
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(abbreviation: "GMT+1:00")
         for item in self.results where (formatter.string(from: item.date) == formatter.string(from: date)) {
-            if item.maxFrequency > max {
+            if (item.maxFrequency > max && item.leftEar == leftEar) {
                 max = item.maxFrequency
             }
         }
         if (freq > max) {
-            self.results.removeAll(where: {formatter.string(from: $0.date) == formatter.string(from: date)})
+            self.results.removeAll(where: {formatter.string(from: $0.date) == formatter.string(from: date) && $0.leftEar == leftEar})
             saveProfile()
             return true
         } else {

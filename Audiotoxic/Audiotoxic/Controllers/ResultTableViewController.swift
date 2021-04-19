@@ -21,7 +21,7 @@ class ResultTableViewController: UITableViewController {
         super.viewDidLoad()
         print(profile.results)
         
-        selectedReading = Reading(frequency: 0)
+        selectedReading = Reading(frequency: 0, leftEar: true)
         idCount = profile.results.count + 1
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -54,6 +54,12 @@ class ResultTableViewController: UITableViewController {
         formatter.dateFormat = "dd/MM/yyyy"
         cell.resultDate.text = " Date: " + formatter.string(from: reading.date)
         cell.freqID.text = "Frequency (Hz): " + String(reading.maxFrequency)
+        if(reading.leftEar){
+            cell.resultID.text = "Left ear"
+        }
+        else {
+            cell.resultID.text = "Right ear"
+        }
         //cell.resultID.text = String(idCount)
         return cell
     }

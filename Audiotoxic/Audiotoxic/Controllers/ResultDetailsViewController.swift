@@ -5,7 +5,9 @@ import TinyConstraints
 class ResultDetailsViewController: UIViewController {
     
     var testDate: String!
-    var yValues: [ChartDataEntry] = []
+    var yValuesLeft: [ChartDataEntry] = []
+    var yValuesRight: [ChartDataEntry] = []
+    var xAxis: [String] = []
     let profile = Profile()
     var isLandscape = false
     
@@ -31,6 +33,7 @@ class ResultDetailsViewController: UIViewController {
             chartView.rightAxis.enabled = false
             
             chartView.xAxis.labelPosition = .bottom
+            chartView.xAxis.enabled = true
             chartView.xAxis.labelRotationAngle = 90
             chartView.xAxis.labelFont = .boldSystemFont(ofSize: 12)
             chartView.xAxis.setLabelCount(6, force: false)
@@ -41,6 +44,7 @@ class ResultDetailsViewController: UIViewController {
             return chartView
         }()
     }
+    
     func drawGraph(){
         lineChartView.removeFromSuperview()
         
@@ -90,16 +94,28 @@ class ResultDetailsViewController: UIViewController {
         profile.loadProfile()
         let secondsPerDay = 24.0 * 3600.0
         for item in profile.results {
-            //print(item.date)
-            yValues.append(ChartDataEntry(x: item.date.timeIntervalSince1970/secondsPerDay, y: Double(item.maxFrequency)))
+            if item.leftEar == true {
+                yValuesLeft.append(ChartDataEntry(x: round(item.date.timeIntervalSince1970/secondsPerDay), y: Double(item.maxFrequency)))
+                print(yValuesLeft)
+            } else {
+                yValuesRight.append(ChartDataEntry(x: round(item.date.timeIntervalSince1970/secondsPerDay), y: Double(item.maxFrequency)))
+                print(yValuesRight)
+            }
         }
     }
     
     func setData() {
-        let set1 = LineChartDataSet(entries: yValues, label: "frequency")
-        let data = LineChartData(dataSet: set1)
-        lineChartView.data = data
+        var allLineChartDataSets: [LineChartDataSet] = [LineChartDataSet]()
+        let leftSet = LineChartDataSet(entries: yValuesLeft, label: "Left ear - frequency")
+        allLineChartDataSets.append(leftSet)
+        let rightSet = LineChartDataSet(entries: yValuesRight, label: "Right ear - frequency")
+        rightSet.setColor(UIColor.systemRed)
+        rightSet.setCircleColor(UIColor.systemRed)
+        allLineChartDataSets.append(rightSet)
+        let lineChartData = LineChartData(dataSets: allLineChartDataSets)
+        lineChartView.data = lineChartData
     }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         isLandscape = landscapeOrNah()

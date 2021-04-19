@@ -129,10 +129,10 @@ class TestViewController: UIViewController {
             self.waitRandom()
             self.createTone(freq: 16000, dB: 80, isLeftEar: leftEar)
             self.isTestRunning = false
-            let reading = Reading(frequency: self.maxFreq)
+            let reading = Reading(frequency: self.maxFreq, leftEar: leftEar)
             print(reading.maxFrequency)
             print(reading.date)
-            if self.profile.okToSave(date: reading.date, freq: reading.maxFrequency){
+            if self.profile.okToSave(date: reading.date, freq: reading.maxFrequency, leftEar: leftEar){
                 self.profile.results.append(reading)
                 self.profile.saveProfile()
             }
