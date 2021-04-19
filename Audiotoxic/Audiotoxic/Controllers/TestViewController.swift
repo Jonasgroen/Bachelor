@@ -126,13 +126,19 @@ class TestViewController: UIViewController {
             print(reading.maxFrequency)
             print(reading.date)
             print("is left ear: " + leftEar.description)
+            if self.profile.okToSave(date: reading.date, freq: reading.maxFrequency, leftEar: leftEar){
+                self.profile.results.append(reading)
+                self.profile.saveProfile()
+                }
             if(leftEar){
                 self.improvedAlgorithm(leftEar: false)
             } else {
                 self.isTestRunning = false
-            if self.profile.okToSave(date: reading.date, freq: reading.maxFrequency, leftEar: leftEar){
-                self.profile.results.append(reading)
-                self.profile.saveProfile()
+                DispatchQueue.main.async {
+                    if (!self.isTestRunning) {
+                        self.LabelInTest.text = "Press the start button to begin the test!"
+                        self.testButton.setImage(UIImage(named: "startBtn"), for: .normal)
+                    }
                 }
             }
         }

@@ -75,6 +75,7 @@ class Profile {
     
     func loadProfile()
     {
+        
         print("Fetching Data..")
         openDatabase()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
