@@ -1,0 +1,33 @@
+/* 
+  InternalStrings.strings
+  Audiotoxic
+
+  Created by Alexander Tholle on 19/04/2021.
+  Copyright © 2021 sdu.dk. All rights reserved.
+*/
+
+"title1" = "What is an Ototoxic drug?";
+"Description1" = "Certain medications can damage the ear, resulting in hearing loss, ringing in the ear, or balance disorders. These drugs are considered ototoxic. There are more than 200 known ototoxic medications (prescription and over-the-counter) on the market today. These include medicines used to treat serious infections, cancer, and heart disease.";
+
+"title2" = "Signs and Symptoms";
+
+"description" = "When you are taking ototoxic drugs, you should be aware of any changes in your hearing. The first signs of ototoxicity is usually ringing in the ears (tinnitus) and/or high frequency hearing loss. The high frequencies are not common to experience so you must be aware your hearing ability with these frequencies by yourself. If you keep track of your hearing in the high frequencies, you may be able to prevent hearing loss in the lower frequencies, which is much more common in your life. Lastly, you can also experience a loss of balance or a feeling of unsteadiness when standing.";
+
+"title3" = "Diagnosis";
+
+"Description3" = "The problem with diagnosing Ototoxicity is that it is gradually getting worse over time and it begins very subtely. Therefore it is important to be aware of whether or not your medication is Ototoxic. Your physician should recommend regular hearing tests to make sure that you catch hearing damage early. This way physicians can also discontinue or reduce the medication dose to ensure no further hearing damage is made.";
+
+"title4" = "Treatment";
+
+"description4" = "There are no current treatments to reverse the effects of ototoxicity. That is why it is so important to detect early on. Patients who suffer from permanent hearing damage may elect to use hearing aids or implants.";
+
+"title5 " = "How the Audiotoxic app can help you";
+
+"description5" = "As mentioned in the above sections, the effects of Ototoxicity are subtle and irreversible. Therefore it is very important to detect any potential damage early on. The Audiotoxic app can be your regular hearing test you can use to keep track of your hearing. The app can potentially prevent permanent hearing loss and it makes hearings tests more accessible.";
+
+"title6" = "Read more about Ototoxicity";
+
+"description6" = "You can read more about Ototoxicity on the following pages:
+        \n\nmedical-dictionary.thefreedictionary.com
+        \n\nasha.org
+        \n\nen.wikipedia.org";

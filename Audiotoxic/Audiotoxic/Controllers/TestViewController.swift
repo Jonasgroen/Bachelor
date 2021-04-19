@@ -71,7 +71,7 @@ class TestViewController: UIViewController {
             }
         } else {
             isTestRunning = true
-            LabelInTest.text = "Press the red button when you hear the sound."
+            LabelInTest.text = NSLocalizedString("test.test-running-button", tableName: "InternalLocalizedStrings", comment: "")
             testButton.setImage(UIImage(named: "stopBtn"), for: .normal)
             improvedAlgorithm(leftEar: true)
         }

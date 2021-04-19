@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E68054FB2B55A09AD34EF6A /* Pods_Audiotoxic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75704A77556255251A50834A /* Pods_Audiotoxic.framework */; };
+		3A548963262D8D7C004B49D4 /* InternalLocalizedStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A548961262D8D7C004B49D4 /* InternalLocalizedStrings.strings */; };
 		3AE6CB7826247E990057D336 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6CB7726247E990057D336 /* Section.swift */; };
 		3F6F98B7254D896B001111BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F98B6254D896B001111BC /* AppDelegate.swift */; };
 		3F6F98BC254D896B001111BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6F98BA254D896B001111BC /* Main.storyboard */; };
@@ -28,6 +29,10 @@
 
 /* Begin PBXFileReference section */
 		1F97A0824B61039CEC193683 /* Pods-Audiotoxic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Audiotoxic.release.xcconfig"; path = "Target Support Files/Pods-Audiotoxic/Pods-Audiotoxic.release.xcconfig"; sourceTree = "<group>"; };
+		3A548953262D7D98004B49D4 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
+		3A548954262D7D99004B49D4 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3A548962262D8D7C004B49D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InternalLocalizedStrings.strings; sourceTree = "<group>"; };
+		3A548965262D8D83004B49D4 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InternalLocalizedStrings.strings; sourceTree = "<group>"; };
 		3AE6CB7726247E990057D336 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		3F6F98B3254D896B001111BC /* Audiotoxic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Audiotoxic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6F98B6254D896B001111BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 				3F6F98BF254D896C001111BC /* LaunchScreen.storyboard */,
 				3F6F98C2254D896C001111BC /* Info.plist */,
 				DDC1E5842610C65A00A9B414 /* DataModel.xcdatamodeld */,
+				3A548961262D8D7C004B49D4 /* InternalLocalizedStrings.strings */,
 			);
 			path = Audiotoxic;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 			knownRegions = (
 				en,
 				Base,
+				da,
 			);
 			mainGroup = 3F6F98AA254D896B001111BC;
 			productRefGroup = 3F6F98B4254D896B001111BC /* Products */;
@@ -207,6 +214,7 @@
 			files = (
 				3F6F98C1254D896C001111BC /* LaunchScreen.storyboard in Resources */,
 				3F6F98BE254D896C001111BC /* Assets.xcassets in Resources */,
+				3A548963262D8D7C004B49D4 /* InternalLocalizedStrings.strings in Resources */,
 				3F6F98BC254D896B001111BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,10 +287,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		3A548961262D8D7C004B49D4 /* InternalLocalizedStrings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A548962262D8D7C004B49D4 /* Base */,
+				3A548965262D8D83004B49D4 /* da */,
+			);
+			name = InternalLocalizedStrings.strings;
+			sourceTree = "<group>";
+		};
 		3F6F98BA254D896B001111BC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3F6F98BB254D896B001111BC /* Base */,
+				3A548953262D7D98004B49D4 /* da */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -291,6 +309,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3F6F98C0254D896C001111BC /* Base */,
+				3A548954262D7D99004B49D4 /* da */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -302,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -363,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

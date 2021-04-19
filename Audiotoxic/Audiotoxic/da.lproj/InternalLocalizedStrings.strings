@@ -1,0 +1,38 @@
+/*
+  InternalStrings.strings
+  Audiotoxic
+
+  Created by Alexander Tholle on 19/04/2021.
+  Copyright © 2021 sdu.dk. All rights reserved.
+*/
+
+"section.title.ototoxic-drug" = "Hvad er Ototoksisk medicin?";
+
+"section.description.ototoxic-drug" = "Visse lægemidler kan medføre øreskade eller balance problemer. Disse lægemidler betragtes som \"Ototoksiske\". Der er mere end 200 kendte ototoksiske lægemidler (receptpligtige og receptfrie) på markedet i dag. Det inkluderer lægemidler der bruges til at behandle alvorlige infektioner, kræft og hjerte sygdomme.";
+
+"section.title.signs-symptoms" = "Tegn og Symptomer";
+
+"section.description.signs-symptoms" = "Når du tager ototoksiske lægemidler, skal du være opmærksom på eventuelle ændringer i din hørelse. De første tegn på ototoksicitet er oftest ringen i ørerne (tinnitus) og/eller høretab i de høje frekvenser (10000 - 16000). De høje frekvenser er ikke almindelige at opleve, så du skal selv være opmærksom på din høreevne med disse frekvenser. Hvis du holder styr på din hørelse i de høje frekvenser, kan du muligvis forhindre høretab i de lavere frekvenser, hvilket er meget mere almindeligt i dit liv (almindelig tale er i disse frekvenser). Derudover kan du også opleve et tab af balance eller en følelse af ustabilitet, når du står oprejst.";
+
+"section.title.diagnosis" = "Diagnose";
+
+"section.description.diagnosis" = "Problemet med at diagnosticere ototoksicitet er, at det gradvist bliver værre over tid, og det begynder meget subtilt. Derfor er det vigtigt at være opmærksom på, om din medicin er ototoksisk. Din læge bør anbefale regelmæssige høretests for at sikre, at du opdager høreskade tidligt. På denne måde kan læger også afbryde eller reducere medicindosis for at sikre, at der ikke opstår yderligere høreskade.";
+
+"section.title.treatment" = "Behandling";
+
+"section.description.treatment" = "Der er ingen aktuelle behandlinger for at vende virkningerne af ototoksicitet. Derfor er det så vigtigt at opdage tidligt. Patienter der lider af permanent høreskade kan dog vælge at bruge høreapparater eller implantater.";
+
+"section.title.audiotoxic-app" = "Hvordan Audiotoxic app'en kan hjælpe dig";
+
+"section.description.audiotoxic-app" = "Som nævnt i de foregående afsnit er virkningerne af ototoksicitet subtile og irreversible. Derfor er det meget vigtigt at opdage potentiel skade tidligt. Audiotoxic-appen kan være din regelmæssige høretest, som du kan bruge til at holde styr på din hørelse. Appen kan potentielt forhindre permanent høretab, og den gør høretests mere tilgængelige.";
+
+"section.title.read-more" = "Læs mere omkring Ototoksicitet";
+
+"section.description.read-more" = "Du kan læse mere om Ototoksicitet på følgende sider:
+        \n\nmedical-dictionary.thefreedictionary.com
+        \n\nasha.org
+        \n\nda.wikipedia.org";
+
+"info.opening-text" = "Der er meget information omkring Ototoksi, så vi har inddelt det i sektioner herunder, inklusiv information omkring denne app.";
+
+"test.test-running-button" = "Tryk på den røde knap når du hører tonen.";
