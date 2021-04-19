@@ -22,7 +22,7 @@
 
 "section.description.treatment" = "There are no current treatments to reverse the effects of ototoxicity. That is why it is so important to detect early on. Patients who suffer from permanent hearing damage may elect to use hearing aids or implants.";
 
-"section.title.audiotoxic-app " = "How the Audiotoxic app can help you";
+"section.title.audiotoxic-app" = "How the Audiotoxic app can help you";
 
 "section.description.audiotoxic-app" = "As mentioned in the previous sections, the effects of Ototoxicity are subtle and irreversible. Therefore it is very important to detect any potential damage early on. The Audiotoxic app can be your regular hearing test you can use to keep track of your hearing. The app can potentially prevent permanent hearing loss and it makes hearings tests more accessible.";
 
@@ -36,3 +36,12 @@
 "info.opening-text" = "There is a lot of information on Ototoxicity, so we have divided into the sections below, including information about this app.";
 
 "test.test-running-button" = "Press the red button when you hear the sound.";
+
+
+"result.details.left-ear" = "Left ear";
+
+"result.details.right-ear" = "Right ear";
+
+"result.frequency" = "Frequency (Hz): ";
+
+"result.date" = "Date: ";

@@ -36,3 +36,12 @@
 "info.opening-text" = "Der er meget information omkring Ototoksi, så vi har inddelt det i sektioner herunder, inklusiv information omkring denne app.";
 
 "test.test-running-button" = "Tryk på den røde knap når du hører tonen.";
+
+"result.details.left-ear" = "Venstre øre";
+
+"result.details.right-ear" = "Højre øre";
+
+"result.frequency" = "Frekvens (Hz): ";
+
+"result.date" = "Dato: ";
+

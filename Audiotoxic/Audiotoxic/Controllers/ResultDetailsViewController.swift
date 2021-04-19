@@ -100,9 +100,9 @@ class ResultDetailsViewController: UIViewController {
     
     func setData() {
         var allLineChartDataSets: [LineChartDataSet] = [LineChartDataSet]()
-        let leftSet = LineChartDataSet(entries: yValuesLeft, label: "Left ear - frequency")
+        let leftSet = LineChartDataSet(entries: yValuesLeft, label: NSLocalizedString("result.details.left-ear", tableName: "InternalLocalizedStrings", comment: ""))
         allLineChartDataSets.append(leftSet)
-        let rightSet = LineChartDataSet(entries: yValuesRight, label: "Right ear - frequency")
+        let rightSet = LineChartDataSet(entries: yValuesRight, label: NSLocalizedString("result.details.right-ear", tableName: "InternalLocalizedStrings", comment: ""))
         rightSet.setColor(UIColor.systemRed)
         rightSet.setCircleColor(UIColor.systemRed)
         allLineChartDataSets.append(rightSet)

@@ -51,13 +51,14 @@ class ResultTableViewController: UITableViewController {
         // Configure the cell...
         //idCount = idCount - 1
         formatter.dateFormat = "dd/MM/yyyy"
-        cell.resultDate.text = " Date: " + formatter.string(from: reading.date)
-        cell.freqID.text = "Frequency (Hz): " + String(reading.maxFrequency)
+        cell.resultDate.text = NSLocalizedString("result.date", tableName: "InternalLocalizedStrings", comment: "") + formatter.string(from: reading.date)
+        cell.freqID.text = NSLocalizedString("result.frequency", tableName: "InternalLocalizedStrings", comment: "") + String(reading.maxFrequency)
+        
         if(reading.leftEar){
-            cell.resultID.text = "Left ear"
+            cell.resultID.text = NSLocalizedString("result.details.left-ear", tableName: "InternalLocalizedStrings", comment: "")
         }
         else {
-            cell.resultID.text = "Right ear"
+            cell.resultID.text = NSLocalizedString("result.details.right-ear", tableName: "InternalLocalizedStrings", comment: "")
         }
         //cell.resultID.text = String(idCount)
         return cell
