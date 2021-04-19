@@ -19,13 +19,6 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if (profile.name == "") {
-            print("hey")
-            
-        }
-            
-        
         loadSections()
         
         scrollView.addSubview(tableView)

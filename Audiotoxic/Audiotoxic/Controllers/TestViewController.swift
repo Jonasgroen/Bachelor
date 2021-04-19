@@ -61,10 +61,8 @@ class TestViewController: UIViewController {
     }
     
     @IBAction func soundButton(_ sender: Any) {
-        print(isAudioOn)
         if (isTestRunning) {
             if (isAudioOn) {
-                print(maxFreq)
                 maxFreq = currentFreq
                 dBOfFinalReading = currentdB
                 if(currentdB == 40){
@@ -123,9 +121,6 @@ class TestViewController: UIViewController {
                 self.heardAt40 = false
             }
             let reading = Reading(frequency: self.maxFreq, leftEar: leftEar)
-            print(reading.maxFrequency)
-            print(reading.date)
-            print("is left ear: " + leftEar.description)
             if self.profile.okToSave(date: reading.date, freq: reading.maxFrequency, leftEar: leftEar){
                 self.profile.results.append(reading)
                 self.profile.saveProfile()

@@ -13,12 +13,7 @@ class Profile {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate //Singlton instance
     var context:NSManagedObjectContext!
     
-    
-    init() {
-        
-        
-    }
-    
+    init() {}
     
     func saveProfile() {
         deleteData()
@@ -44,7 +39,6 @@ class Profile {
         
         let arrayAsString: String = readingArray.description
         newUser.setValue(arrayAsString, forKey: "data")
-        print(arrayAsString)
         print("Storing Data..")
         do {
             try context.save()
@@ -73,9 +67,7 @@ class Profile {
         }
     }
     
-    func loadProfile()
-    {
-        
+    func loadProfile(){
         print("Fetching Data..")
         openDatabase()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
@@ -90,7 +82,6 @@ class Profile {
                     results.removeAll()
                     if let myData = data.value(forKey: "data") as? String
                     {
-                        print(myData)
                         let stringAsData = myData.data(using: String.Encoding.utf16)
                         let readingArray: [String] = try! JSONDecoder().decode([String].self, from: stringAsData!)
                         for i in stride(from: 0, to: readingArray.count, by: 3) {
@@ -105,9 +96,6 @@ class Profile {
                             results.append(newReading)
                         }
                     }
-                    print("name is : " + name)
-                    print(sex)
-                    print(dateOfBirth)
                 }
             }
         } catch {
@@ -117,7 +105,7 @@ class Profile {
     
     func okToSave(date: Date, freq: Int, leftEar: Bool) -> Bool{
         var max = 0
-    
+        
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = TimeZone(abbreviation: "GMT+1:00")
         for item in self.results where (formatter.string(from: item.date) == formatter.string(from: date)) {
@@ -132,22 +120,5 @@ class Profile {
         } else {
             return false
         }
-    }
-    
-    func gotUser(key: String) -> Bool {
-        return UserDefaults.standard.value(forKey: key) != nil
-    }
-    
-    func printUserDefaults(){
-        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-            print("\(key) = \(value) \n")
-        }
-        
-    }
-    
-    func clearUserDefaults() {
-        let domain = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: domain)
-        UserDefaults.standard.synchronize()
     }
 }

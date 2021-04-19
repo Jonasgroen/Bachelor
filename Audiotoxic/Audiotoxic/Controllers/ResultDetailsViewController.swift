@@ -80,10 +80,6 @@ class ResultDetailsViewController: UIViewController {
         isLandscape = landscapeOrNah()
         createGraph()
         drawGraph()
-        
-        
-        //dateOfTest.text = "Date of test: " + testDate
-        // Do any additional setup after loading the view.
     }
     
     func chartValueSelected(_chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight ) {
@@ -96,10 +92,8 @@ class ResultDetailsViewController: UIViewController {
         for item in profile.results {
             if item.leftEar == true {
                 yValuesLeft.append(ChartDataEntry(x: round(item.date.timeIntervalSince1970/secondsPerDay), y: Double(item.maxFrequency)))
-                print(yValuesLeft)
             } else {
                 yValuesRight.append(ChartDataEntry(x: round(item.date.timeIntervalSince1970/secondsPerDay), y: Double(item.maxFrequency)))
-                print(yValuesRight)
             }
         }
     }
