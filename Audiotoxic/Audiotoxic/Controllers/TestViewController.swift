@@ -7,7 +7,7 @@ class TestViewController: UIViewController {
     @IBOutlet weak var LabelInTest: UILabel!
     @IBOutlet weak var testButton: UIButton!
     
-    let osciliator = AKOscillator()
+    let osciliator = AKOscillator(waveform:AKTable(.sine))
     var isTestRunning = false
     var isAudioOn = false
     var currentFreq: Int!
@@ -143,10 +143,15 @@ class TestViewController: UIViewController {
         currentFreq = Int(freq)
         currentdB = dB
         isAudioOn = true
+        let envelope = AKAmplitudeEnvelope(osciliator)
+        envelope.attackDuration = 0.01
+        envelope.decayDuration = 0.1
+        envelope.sustainLevel = 0.1
+        envelope.releaseDuration = 1
         osciliator.frequency = freq
         osciliator.amplitude = calculateVolume(dB: dB)
-        osciliator.rampDuration = 0.25
-        panner = AKPanner(osciliator, pan: (isLeftEar) ? -1 : 1)
+        osciliator.rampDuration = 1
+        panner = AKPanner(envelope, pan: (isLeftEar) ? -1 : 1)
         AudioKit.AKManager.output = panner //Remember to set output as panner
         do{
             try AudioKit.AKManager.start()
@@ -156,7 +161,9 @@ class TestViewController: UIViewController {
         
         panner.start()
         osciliator.start()
+        envelope.start()
         sleep(2)
+        osciliator.amplitude = 0
             do{
                 try AKManager.stop()}
             catch{
