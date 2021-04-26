@@ -143,35 +143,28 @@ class TestViewController: UIViewController {
         currentFreq = Int(freq)
         currentdB = dB
         isAudioOn = true
-        let envelope = AKAmplitudeEnvelope(osciliator)
-        envelope.attackDuration = 0.01
-        envelope.decayDuration = 0.1
-        envelope.sustainLevel = 0.1
-        envelope.releaseDuration = 1
         osciliator.frequency = freq
         osciliator.amplitude = calculateVolume(dB: dB)
         osciliator.rampDuration = 1
-        panner = AKPanner(envelope, pan: (isLeftEar) ? -1 : 1)
-        AudioKit.AKManager.output = panner //Remember to set output as panner
         do{
-            try AudioKit.AKManager.start()
-        }catch{
-            print("could not start AudioKit.")
+            try AKManager.stop()
         }
+        catch{
+            print("AudioKit could not stop")
+        }
+        panner = AKPanner(osciliator, pan: (isLeftEar) ? -1 : 1)
+        AudioKit.AKManager.output = panner //Remember to set output as panner
+            do{
+                try AudioKit.AKManager.start()
+            }catch{
+                print("could not start AudioKit.")
+        }
+
         
         panner.start()
         osciliator.start()
-        envelope.start()
         sleep(2)
         osciliator.amplitude = 0
-            do{
-                try AKManager.stop()}
-            catch{
-                print("AudioKit could not stop")
-            }
-        
-        
-        //osciliator.stop()
         isAudioOn = false
         DispatchQueue.main.async {
             if (!self.isTestRunning) {
