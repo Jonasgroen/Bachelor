@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E68054FB2B55A09AD34EF6A /* Pods_Audiotoxic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75704A77556255251A50834A /* Pods_Audiotoxic.framework */; };
+		3A01211B2636F03D0046253E /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A01211A2636F03D0046253E /* CalibrationViewController.swift */; };
 		3A548963262D8D7C004B49D4 /* InternalLocalizedStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A548961262D8D7C004B49D4 /* InternalLocalizedStrings.strings */; };
 		3AE6CB7826247E990057D336 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6CB7726247E990057D336 /* Section.swift */; };
 		3F6F98B7254D896B001111BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F98B6254D896B001111BC /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		1F97A0824B61039CEC193683 /* Pods-Audiotoxic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Audiotoxic.release.xcconfig"; path = "Target Support Files/Pods-Audiotoxic/Pods-Audiotoxic.release.xcconfig"; sourceTree = "<group>"; };
+		3A01211A2636F03D0046253E /* CalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
 		3A548953262D7D98004B49D4 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
 		3A548954262D7D99004B49D4 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3A548962262D8D7C004B49D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InternalLocalizedStrings.strings; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				3F6F98D1254D8F75001111BC /* ResultTableViewController.swift */,
 				3F6F98D3254D9051001111BC /* ResultDetailsViewController.swift */,
 				DDB967A12587A21300329344 /* TabBarViewController.swift */,
+				3A01211A2636F03D0046253E /* CalibrationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				DDB967A22587A21300329344 /* TabBarViewController.swift in Sources */,
 				3F6F98D8254D9262001111BC /* Reading.swift in Sources */,
 				3F6F98D2254D8F75001111BC /* ResultTableViewController.swift in Sources */,
+				3A01211B2636F03D0046253E /* CalibrationViewController.swift in Sources */,
 				3F6F98D6254D909D001111BC /* Profile.swift in Sources */,
 				3F6F98D0254D8F65001111BC /* ProfileViewController.swift in Sources */,
 				3F6F98CE254D8F54001111BC /* InfoViewController.swift in Sources */,
