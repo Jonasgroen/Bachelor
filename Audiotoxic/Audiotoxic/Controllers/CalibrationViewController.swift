@@ -42,8 +42,7 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let selectedFrequency = getSelectedFrequency()
         let maxDBValue = Double(maxDBText.text!)!
         let inputDBValue = Double(inputDBText.text!)!
-        let calculatedDB = calculateDB(maxDB: maxDBValue, inputDB: inputDBValue)
-        playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: calculatedDB, maxDB: maxDBValue)
+        playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: inputDBValue, maxDB: maxDBValue)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -66,9 +65,9 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     private func playSound(freq: Double, isLeftEar: Bool, dB: Double, maxDB: Double){
-        
+        let calculatedAmp = calculateAmplitude(maxDB: maxDB, inputDB: dB)
         osciliator.frequency = freq
-        osciliator.amplitude = maxDB > 0 ? dB / maxDB : 1
+        osciliator.amplitude = maxDB > 0 ? calculatedAmp : 1
         osciliator.rampDuration = 1
         
         do{
@@ -93,16 +92,13 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         osciliator.amplitude = 0
     }
     
-    private func calculateDB(maxDB: Double, inputDB: Double) -> Double{
+    private func calculateAmplitude(maxDB: Double, inputDB: Double) -> Double{
         /*
          Math.pow(10,(dbRSPL-phoneMaxDBOutput.get(testFreqNo))/20);
          Forklaring: ((DBHvadViVilAfspille - MaxDBOutputForFrekvens) / 20)^10
          */
-        let calculatedDB = pow(10, (inputDB - maxDB) / 20)
-        print("maxDB: " + String(maxDB))
-        print("inputDB: " + String(inputDB))
-        print("calculatedDB: " + String(calculatedDB))
-        return calculatedDB
+        let calculatedAmp = pow(10, (inputDB - maxDB) / 20)
+        return calculatedAmp
     }
     
     /*
