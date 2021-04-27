@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioKit
 
 class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -29,16 +30,17 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         //Just play sound at max volume on selected ear
         let leftEar = earControl.selectedSegmentIndex == 0 ? true : false
         let selectedFrequency = getSelectedFrequency()
-        
+        playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: 100)
     }
     
     @IBAction func playAtInputDB(_ sender: Any) {
         //Play sound with the given dB level
         let leftEar = earControl.selectedSegmentIndex == 0 ? true : false
         let selectedFrequency = getSelectedFrequency()
-        let maxDB = maxDBText.text
-        let inputDB = inputDBText.text
-        
+        let maxDBValue = Double(maxDBText.text!)!
+        let inputDBValue = Double(inputDBText.text!)!
+        let calculatedDB = calculateDB(maxDB: maxDBValue, inputDB: inputDBValue)
+        playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: calculatedDB)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -53,11 +55,38 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
             return frequencies[row]
         }
     
-    private func getSelectedFrequency() -> Int {
+    private func getSelectedFrequency() -> Double {
         var selectedFrequency = frequencies[frequencyPicker.selectedRow(inComponent: 0)]
         selectedFrequency.removeLast()
         selectedFrequency.removeLast()
-        return Int.init(selectedFrequency)!
+        return Double.init(selectedFrequency)!
+    }
+    
+    private func playSound(freq: Double, isLeftEar: Bool, dB: Double){
+        let oscillator = AKOscillator()
+        oscillator.frequency = freq
+        oscillator.amplitude = dB
+        oscillator.rampDuration = 0.25
+        let panner = AKPanner(oscillator, pan: (isLeftEar) ? -1 : 1)
+        AudioKit.AKManager.output = panner //Remember to set output as panner
+        do{
+            try AudioKit.AKManager.start()
+        }catch{
+            print("could not start AudioKit.")
+        }
+        
+        panner.start()
+        oscillator.start()
+        sleep(5)
+            do{
+                try AKManager.stop()}
+            catch{
+                print("AudioKit could not stop")
+            }
+    }
+    
+    private func calculateDB(maxDB: Double, inputDB: Double) -> Double{
+        return 0
     }
     
     /*
