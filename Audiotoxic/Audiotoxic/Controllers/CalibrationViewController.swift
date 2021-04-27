@@ -17,6 +17,9 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var earControl: UISegmentedControl!
     
     let frequencies = ["10000Hz", "12500Hz", "14000Hz", "16000Hz"]
+    let osciliator = AKOscillator(waveform: AKTable(.sine))
+    
+    var panner: AKPanner!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,7 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         //Just play sound at max volume on selected ear
         let leftEar = earControl.selectedSegmentIndex == 0 ? true : false
         let selectedFrequency = getSelectedFrequency()
-        playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: 100)
+        playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: 0, maxDB: 0)
     }
     
     @IBAction func playAtInputDB(_ sender: Any) {
@@ -40,7 +43,7 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let maxDBValue = Double(maxDBText.text!)!
         let inputDBValue = Double(inputDBText.text!)!
         let calculatedDB = calculateDB(maxDB: maxDBValue, inputDB: inputDBValue)
-        playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: calculatedDB)
+        playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: calculatedDB, maxDB: maxDBValue)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -62,31 +65,44 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return Double.init(selectedFrequency)!
     }
     
-    private func playSound(freq: Double, isLeftEar: Bool, dB: Double){
-        let oscillator = AKOscillator()
-        oscillator.frequency = freq
-        oscillator.amplitude = dB
-        oscillator.rampDuration = 0.25
-        let panner = AKPanner(oscillator, pan: (isLeftEar) ? -1 : 1)
+    private func playSound(freq: Double, isLeftEar: Bool, dB: Double, maxDB: Double){
+        
+        osciliator.frequency = freq
+        osciliator.amplitude = maxDB > 0 ? dB / maxDB : 1
+        osciliator.rampDuration = 1
+        
+        do{
+            try AKManager.stop()
+        }
+        catch{
+            print("AudioKit could not stop")
+        }
+        
+        panner = AKPanner(osciliator, pan: (isLeftEar) ? -1 : 1)
         AudioKit.AKManager.output = panner //Remember to set output as panner
+            
         do{
             try AudioKit.AKManager.start()
         }catch{
             print("could not start AudioKit.")
         }
-        
+
         panner.start()
-        oscillator.start()
+        osciliator.start()
         sleep(5)
-            do{
-                try AKManager.stop()}
-            catch{
-                print("AudioKit could not stop")
-            }
+        osciliator.amplitude = 0
     }
     
     private func calculateDB(maxDB: Double, inputDB: Double) -> Double{
-        return 0
+        /*
+         Math.pow(10,(dbRSPL-phoneMaxDBOutput.get(testFreqNo))/20);
+         Forklaring: ((DBHvadViVilAfspille - MaxDBOutputForFrekvens) / 20)^10
+         */
+        let calculatedDB = pow(10, (inputDB - maxDB) / 20)
+        print("maxDB: " + String(maxDB))
+        print("inputDB: " + String(inputDB))
+        print("calculatedDB: " + String(calculatedDB))
+        return calculatedDB
     }
     
     /*
