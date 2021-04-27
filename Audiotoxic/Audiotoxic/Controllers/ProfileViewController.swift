@@ -59,9 +59,11 @@ class ProfileViewController: UIViewController {
        
         //self.navigationController?.dismiss(animated: true, completion: nil)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -78,6 +80,16 @@ class ProfileViewController: UIViewController {
             index = 1
         }
         sex.selectedSegmentIndex = index
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
 }
