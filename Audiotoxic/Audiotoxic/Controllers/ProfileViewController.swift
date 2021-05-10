@@ -56,7 +56,6 @@ class ProfileViewController: UIViewController {
 
         present(refreshAlert, animated: true, completion: nil)
 
-       
         //self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -65,7 +64,6 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         var index = 0
         
@@ -91,6 +89,5 @@ class ProfileViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
 }
 

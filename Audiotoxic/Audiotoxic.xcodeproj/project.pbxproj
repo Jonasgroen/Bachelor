@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E68054FB2B55A09AD34EF6A /* Pods_Audiotoxic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75704A77556255251A50834A /* Pods_Audiotoxic.framework */; };
 		3A01211B2636F03D0046253E /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A01211A2636F03D0046253E /* CalibrationViewController.swift */; };
+		3A012123264925D90046253E /* AmpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A012122264925D90046253E /* AmpManager.swift */; };
 		3A548963262D8D7C004B49D4 /* InternalLocalizedStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A548961262D8D7C004B49D4 /* InternalLocalizedStrings.strings */; };
 		3AE6CB7826247E990057D336 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6CB7726247E990057D336 /* Section.swift */; };
 		3F6F98B7254D896B001111BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F98B6254D896B001111BC /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		1F97A0824B61039CEC193683 /* Pods-Audiotoxic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Audiotoxic.release.xcconfig"; path = "Target Support Files/Pods-Audiotoxic/Pods-Audiotoxic.release.xcconfig"; sourceTree = "<group>"; };
 		3A01211A2636F03D0046253E /* CalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
+		3A012122264925D90046253E /* AmpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmpManager.swift; sourceTree = "<group>"; };
 		3A548953262D7D98004B49D4 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
 		3A548954262D7D99004B49D4 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3A548962262D8D7C004B49D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InternalLocalizedStrings.strings; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				3F6F98D7254D9262001111BC /* Reading.swift */,
 				DDB967B525891BCB00329344 /* DateAxisValueFormatter.swift */,
 				3AE6CB7726247E990057D336 /* Section.swift */,
+				3A012122264925D90046253E /* AmpManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB967B625891BCB00329344 /* DateAxisValueFormatter.swift in Sources */,
+				3A012123264925D90046253E /* AmpManager.swift in Sources */,
 				3F6F98D4254D9051001111BC /* ResultDetailsViewController.swift in Sources */,
 				3F6F98CC254D8F3D001111BC /* TestViewController.swift in Sources */,
 				3AE6CB7826247E990057D336 /* Section.swift in Sources */,

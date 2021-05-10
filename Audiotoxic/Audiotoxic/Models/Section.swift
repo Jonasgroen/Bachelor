@@ -1,10 +1,3 @@
-//
-//  Section.swift
-//  Audiotoxic
-//
-//  Created by Rasmus Bødker on 12/04/2021.
-//  Copyright © 2021 sdu.dk. All rights reserved.
-//
 
 import Foundation
 
