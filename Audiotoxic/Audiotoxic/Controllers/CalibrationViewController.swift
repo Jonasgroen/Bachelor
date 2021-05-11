@@ -70,10 +70,10 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     private func playSound(freq: Double, isLeftEar: Bool, dB: Double, maxDB: Double){
         queue.async {
-        let calculatedAmp = ampManager.calculateAmplitudeCalibration(inputDB: dB, maxDB: maxDB)
-        osciliator.frequency = freq
-        osciliator.amplitude = maxDB > 0 ? calculatedAmp : 1
-        osciliator.rampDuration = 1
+            let calculatedAmp = self.ampManager.calculateAmplitudeCalibration(inputDB: dB, maxDB: maxDB)
+            self.osciliator.frequency = freq
+            self.osciliator.amplitude = maxDB > 0 ? calculatedAmp : 1
+            self.osciliator.rampDuration = 1
         
         do{
             try AKManager.stop()
@@ -97,4 +97,5 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
             self.osciliator.amplitude = 0
         }
     }
-}
+    }
+
