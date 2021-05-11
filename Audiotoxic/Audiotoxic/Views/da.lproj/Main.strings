@@ -9,7 +9,7 @@
 "SFC-T8-vpE.title" = "ResultTableViewController";
 
 /* Class = "UILabel"; text = "Press the start button to begin the test!"; ObjectID = "b7n-t5-zQR"; */
-"b7n-t5-zQR.text" = "Tryk på start knappen for at begynde testen!";
+"b7n-t5-zQR.text" = "Tryk på start knappen for at begynde testen! \n(Husk Hovedtelefoner)";
 
 /* Class = "UILabel"; text = "Reading details"; ObjectID = "buD-xH-Ild"; */
 "buD-xH-Ild.text" = "Måling detaljer";

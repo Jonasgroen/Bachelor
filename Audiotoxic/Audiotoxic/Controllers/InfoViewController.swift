@@ -75,6 +75,8 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
     func loadSections(){
         
         sections = [
+            Section(title: NSLocalizedString("section.title.how-to-use-this-app", tableName: stringTable, comment: ""),
+                    description: NSLocalizedString("section.description.how-to-use-this-app", tableName: stringTable, comment: "")),
             Section(title: NSLocalizedString("section.title.ototoxic-drug", tableName: stringTable, comment: ""),
                     description: NSLocalizedString("section.description.ototoxic-drug", tableName: stringTable, comment: "")),
             Section(title: NSLocalizedString("section.title.signs-symptoms",

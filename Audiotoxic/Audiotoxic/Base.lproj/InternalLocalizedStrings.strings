@@ -5,6 +5,9 @@
   Created by Alexander Tholle on 19/04/2021.
   Copyright © 2021 sdu.dk. All rights reserved.
 */
+"section.title.how-to-use-this-app" = "How do I use this app?";
+
+"section.description.how-to-use-this-app" = "Begin by creating a profile on the profile tab with: Name, Birthday and Sex. When you have saved your profile, you will get access to the \"Test\" and \"Results\" tabs. Now you can begin the test itself (on the Test tab) and measure your current hearing ability. The sound will first come at your left ear, then your right ear. Remember to use headphones! When you have finished your test, you can see your results on the Results tab. Here you can see the highest frequency you heard and at what dB level you heard it at. Use these results to track your hearing over time. Enjoy :)";
 
 "section.title.ototoxic-drug" = "What is an Ototoxic drug?";
 

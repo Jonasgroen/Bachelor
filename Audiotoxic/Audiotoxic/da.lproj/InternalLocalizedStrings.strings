@@ -6,6 +6,10 @@
   Copyright © 2021 sdu.dk. All rights reserved.
 */
 
+"section.title.how-to-use-this-app" = "Hvordan bruger jeg denne app?";
+
+"section.description.how-to-use-this-app" = "Begynd med at oprette din profil ved at vælge \"Profil\" fanen i bunden af skærmen. Indtast dit navn, fødselsdato og køn, og derefter gem profilen. Når profilen er gemt, får du adgang til \"Test\" og \"Resultater\" fanerne. Nu kan du begynde at udføre høretesten og måle din nuværende hørelse. Lyden kommer først i venstre øre og derefter i højre øre, husk derfor at bruge høretelefoner! Når du har færdiggjort testen, kan du se resultaterne i Resultater fanen. Her kan du se den højeste frekvens du kunne høre, samt hvilket dB niveau du hørte den på. Brug disse resultater til at følge din hørelse over tid.";
+
 "section.title.ototoxic-drug" = "Hvad er Ototoksisk medicin?";
 
 "section.description.ototoxic-drug" = "Visse lægemidler kan medføre øreskade eller balance problemer. Disse lægemidler betragtes som \"Ototoksiske\". Der er mere end 200 kendte ototoksiske lægemidler (receptpligtige og receptfrie) på markedet i dag. Det inkluderer lægemidler der bruges til at behandle alvorlige infektioner, kræft og hjerte sygdomme.";
