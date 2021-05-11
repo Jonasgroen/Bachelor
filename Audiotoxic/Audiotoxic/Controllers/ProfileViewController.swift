@@ -67,8 +67,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
         var index = 0
-        
         datePick.maximumDate = Date.init()
             
         profile.loadProfile()

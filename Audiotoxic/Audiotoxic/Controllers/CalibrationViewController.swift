@@ -24,6 +24,9 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
+        
         self.frequencyPicker.delegate = self
         self.frequencyPicker.dataSource = self
         // Do any additional setup after loading the view.
