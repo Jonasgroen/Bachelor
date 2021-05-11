@@ -13,7 +13,6 @@ class ResultDetailsViewController: UIViewController {
     
     @IBOutlet weak var dateOfTest: UILabel!
     var lineChartView: LineChartView = LineChartView()
-    
 
     func createGraph(){
         lineChartView = {
@@ -71,8 +70,6 @@ class ResultDetailsViewController: UIViewController {
         lineChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
         
         setData()
-        
-        
     }
     
     override func viewDidLoad() {
@@ -83,7 +80,7 @@ class ResultDetailsViewController: UIViewController {
     }
     
     func chartValueSelected(_chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight ) {
-        //print(entry)
+        //print(entry) //Can be used to debug selected entry
     }
     
     func createData(){

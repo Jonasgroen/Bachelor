@@ -8,6 +8,7 @@ class TestViewController: UIViewController {
     @IBOutlet weak var testButton: UIButton!
     
     let osciliator = AKOscillator(waveform:AKTable(.sine))
+    let ampManager = AmpManager()
     var isTestRunning = false
     var isAudioOn = false
     var currentFreq: Int!
@@ -35,25 +36,6 @@ class TestViewController: UIViewController {
         } catch {
             print("Can't start AudioKit AKManager")
         }
-        // Do any additional setup after loading the view.
-    }
-    
-    func createTone(freq: Double){
-        currentFreq = Int(freq)
-        isAudioOn = true
-        osciliator.frequency = freq
-        osciliator.rampDuration = 0.25
-        osciliator.start()
-        sleep(2)
-        osciliator.stop()
-        isAudioOn = false
-        DispatchQueue.main.async {
-            if (!self.isTestRunning) {
-                self.LabelInTest.text = "Press the start button to begin the test!"
-                self.testButton.setImage(UIImage(named: "startBtn"), for: .normal)
-            }
-        }
-        
     }
     
     func waitRandom(){
@@ -78,14 +60,6 @@ class TestViewController: UIViewController {
     }
     
     func improvedAlgorithm(leftEar: Bool){
-        //TO-DO:
-        //Make it so that if they can hear the sound at 40dB, it will not play at 80dB
-        // - Done
-        //Make it recall the algorithm on the right ear
-        // - Done
-        // - Need to change the button back (as it does at the end of createTone
-        //Make it save both ears
-        // - In progress
         queue.async {
             self.waitRandom()
             self.createTone(freq: 10000, dB: 40, isLeftEar: leftEar)
@@ -144,7 +118,7 @@ class TestViewController: UIViewController {
         currentdB = dB
         isAudioOn = true
         osciliator.frequency = freq
-        osciliator.amplitude = calculateVolume(dB: dB)
+        osciliator.amplitude = ampManager.calculateAmplitudeTesting(inputDB: Double(dB), frequency: Int(freq))
         osciliator.rampDuration = 1
         do{
             try AKManager.stop()
@@ -160,7 +134,6 @@ class TestViewController: UIViewController {
                 print("could not start AudioKit.")
         }
 
-        
         panner.start()
         osciliator.start()
         sleep(2)
@@ -173,15 +146,6 @@ class TestViewController: UIViewController {
             }
         }
     }
-    
-    func calculateVolume(dB: Int) -> Double{
-        /*
-         Math.pow(10,(dbRSPL-phoneMaxDBOutput.get(testFreqNo))/20);
-         Forklaring: ((DBHvadViVilAfspille - MaxDBOutputForFrekvens) / 20)^10
-         */
-        return 1.0
-    }
-    
 }
 
 

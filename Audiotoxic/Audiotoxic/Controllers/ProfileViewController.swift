@@ -56,7 +56,6 @@ class ProfileViewController: UIViewController {
 
         present(refreshAlert, animated: true, completion: nil)
 
-       
         //self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -65,7 +64,6 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
@@ -92,6 +90,5 @@ class ProfileViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
 }
 
