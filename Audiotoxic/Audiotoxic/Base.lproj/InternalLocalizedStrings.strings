@@ -45,3 +45,7 @@
 "result.frequency" = "Frequency (Hz): ";
 
 "result.date" = "Date: ";
+
+"profile.save" = "Profile saved!";
+
+"profile.notSave" = "Profile not saved!";

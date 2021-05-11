@@ -21,6 +21,8 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     var panner: AKPanner!
     
+    let queue = DispatchQueue(label: "calibration-queue")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,9 +45,14 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         //Play sound with the given dB level
         let leftEar = earControl.selectedSegmentIndex == 0 ? true : false
         let selectedFrequency = getSelectedFrequency()
-        let maxDBValue = Double(maxDBText.text!)!
-        let inputDBValue = Double(inputDBText.text!)!
-        playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: inputDBValue, maxDB: maxDBValue)
+        
+        
+       // let maxDBValue = Double(maxDBText.text!)!
+       // let inputDBValue = Double(inputDBText.text!)!
+
+        if let maxDBValue = Double(maxDBText.text!), let inputDBValue = Double(inputDBText.text!){
+            playSound(freq: selectedFrequency, isLeftEar: leftEar, dB: inputDBValue, maxDB: maxDBValue)
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -68,10 +75,11 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     private func playSound(freq: Double, isLeftEar: Bool, dB: Double, maxDB: Double){
-        let calculatedAmp = calculateAmplitude(maxDB: maxDB, inputDB: dB)
-        osciliator.frequency = freq
-        osciliator.amplitude = maxDB > 0 ? calculatedAmp : 1
-        osciliator.rampDuration = 1
+        queue.async {
+            let calculatedAmp = self.calculateAmplitude(maxDB: maxDB, inputDB: dB)
+            self.osciliator.frequency = freq
+            self.osciliator.amplitude = maxDB > 0 ? calculatedAmp : 1
+            self.osciliator.rampDuration = 1
         
         do{
             try AKManager.stop()
@@ -80,8 +88,8 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
             print("AudioKit could not stop")
         }
         
-        panner = AKPanner(osciliator, pan: (isLeftEar) ? -1 : 1)
-        AudioKit.AKManager.output = panner //Remember to set output as panner
+            self.panner = AKPanner(self.osciliator, pan: (isLeftEar) ? -1 : 1)
+            AudioKit.AKManager.output = self.panner //Remember to set output as panner
             
         do{
             try AudioKit.AKManager.start()
@@ -89,10 +97,11 @@ class CalibrationViewController: UIViewController, UIPickerViewDelegate, UIPicke
             print("could not start AudioKit.")
         }
 
-        panner.start()
-        osciliator.start()
+            self.panner.start()
+            self.osciliator.start()
         sleep(5)
-        osciliator.amplitude = 0
+            self.osciliator.amplitude = 0
+        }
     }
     
     private func calculateAmplitude(maxDB: Double, inputDB: Double) -> Double{

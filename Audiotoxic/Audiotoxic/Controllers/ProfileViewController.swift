@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
                 self.profile.saveProfile()
                 //Shows the text profilesaved for 2 seconds!
                 UIView.animate(withDuration: 2) {
-                    self.profileSaved.text = "Profile saved!"
+                    self.profileSaved.text = NSLocalizedString("profile.save", tableName: "InternalLocalizedStrings", comment: "")
                     self.profileSaved.alpha = 0
                 }
                 if let tabBarItem = self.tabBarController?.tabBar.items?[1] {
@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
               //Handle Cancel Logic here
             UIView.animate(withDuration: 2) {
-                self.profileSaved.text = "Profile was not saved!"
+                self.profileSaved.text = NSLocalizedString("profile.notSave", tableName: "InternalLocalizedStrings", comment: "")
                 self.profileSaved.alpha = 0
             }
         }))
