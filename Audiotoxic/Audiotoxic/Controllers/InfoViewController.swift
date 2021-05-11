@@ -30,8 +30,6 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         openingText.text = NSLocalizedString("info.opening-text", tableName: stringTable,
             comment: "")
-
-        // Do any additional setup after loading the view.
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -95,6 +93,8 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 }
 
+//Extension to enable hyperlinks but this requires the text to be TextFields instead of labels
+//which is why we are not using it at the moment, as that would present more issues.
 extension UITextView {
 
   func addHyperLinksToText(originalText: String, hyperLinks: [String: String]) {

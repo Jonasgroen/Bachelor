@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
                 self.profile.saveProfile()
                 //Shows the text profilesaved for 2 seconds!
                 UIView.animate(withDuration: 2) {
-                    self.profileSaved.text = "Profile saved!"
+                    self.profileSaved.text = NSLocalizedString("profile.save", tableName: "InternalLocalizedStrings", comment: "")
                     self.profileSaved.alpha = 0
                 }
                 if let tabBarItem = self.tabBarController?.tabBar.items?[1] {
@@ -49,14 +49,13 @@ class ProfileViewController: UIViewController {
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
               //Handle Cancel Logic here
             UIView.animate(withDuration: 2) {
-                self.profileSaved.text = "Profile was not saved!"
+                self.profileSaved.text = NSLocalizedString("profile.notSave", tableName: "InternalLocalizedStrings", comment: "")
                 self.profileSaved.alpha = 0
             }
         }))
 
         present(refreshAlert, animated: true, completion: nil)
 
-       
         //self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -65,10 +64,10 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
         var index = 0
-        
         datePick.maximumDate = Date.init()
             
         profile.loadProfile()
@@ -91,6 +90,5 @@ class ProfileViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
 }
 

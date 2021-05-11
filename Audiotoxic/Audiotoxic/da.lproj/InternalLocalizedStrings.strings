@@ -45,3 +45,7 @@
 
 "result.date" = "Dato: ";
 
+"profile.save" = "Profilen blev gemt!";
+
+"profile.notSave" = "Profilen blev ikke gemt!";
+
