@@ -33,7 +33,7 @@ class Profile {
         var readingData: [String] = []
         
         for reading in results {
-            readingData = [reading.date.description, reading.maxFrequency.description, reading.leftEar.description]
+            readingData = [reading.date.description, reading.maxFrequency.description, reading.leftEar.description, reading.maxDB.description]
             readingArray.append(contentsOf: readingData)
         }
         
@@ -84,14 +84,15 @@ class Profile {
                     {
                         let stringAsData = myData.data(using: String.Encoding.utf16)
                         let readingArray: [String] = try! JSONDecoder().decode([String].self, from: stringAsData!)
-                        for i in stride(from: 0, to: readingArray.count, by: 3) {
+                        for i in stride(from: 0, to: readingArray.count, by: 4) {
                             let dateFormatterGet = DateFormatter()
                             dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
                             dateFormatterGet.timeZone = TimeZone(abbreviation: "GMT+1:00")
                             let date = dateFormatterGet.date(from: readingArray[i])
                             let freq = Int(readingArray[i+1])
                             let leftEar = Bool(readingArray[i+2])!
-                            let newReading = Reading(frequency: freq!, leftEar: leftEar)
+                            let dB = Int(readingArray[i+3])!
+                            let newReading = Reading(maxDB: dB, frequency: freq!, leftEar: leftEar)
                             newReading.date = date!
                             results.append(newReading)
                         }

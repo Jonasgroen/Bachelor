@@ -18,7 +18,7 @@ class ResultTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectedReading = Reading(frequency: 0, leftEar: true)
+        selectedReading = Reading(maxDB: 0, frequency: 0, leftEar: true)
         idCount = profile.results.count + 1
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,6 +50,7 @@ class ResultTableViewController: UITableViewController {
         formatter.dateFormat = "dd/MM/yyyy"
         cell.resultDate.text = NSLocalizedString("result.date", tableName: "InternalLocalizedStrings", comment: "") + formatter.string(from: reading.date)
         cell.freqID.text = NSLocalizedString("result.frequency", tableName: "InternalLocalizedStrings", comment: "") + String(reading.maxFrequency)
+            + " dB: " + String(reading.maxDB)
         
         if(reading.leftEar){
             cell.resultID.text = NSLocalizedString("result.details.left-ear", tableName: "InternalLocalizedStrings", comment: "")

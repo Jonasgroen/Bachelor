@@ -14,6 +14,7 @@ class TestViewController: UIViewController {
     var currentFreq: Int!
     var currentdB: Int!
     var maxFreq = 0
+    var maxDB = 0
     var dBOfFinalReading = 0
     var profile = Profile()
     var panner: AKPanner!
@@ -48,7 +49,10 @@ class TestViewController: UIViewController {
                 maxFreq = currentFreq
                 dBOfFinalReading = currentdB
                 if(currentdB == 40){
+                    maxDB = 40
                     heardAt40 = true
+                } else {
+                    maxDB = 80
                 }
             }
         } else {
@@ -94,7 +98,7 @@ class TestViewController: UIViewController {
             } else {
                 self.heardAt40 = false
             }
-            let reading = Reading(frequency: self.maxFreq, leftEar: leftEar)
+            let reading = Reading(maxDB: self.maxDB, frequency: self.maxFreq, leftEar: leftEar)
             if self.profile.okToSave(date: reading.date, freq: reading.maxFrequency, leftEar: leftEar){
                 self.profile.results.append(reading)
                 self.profile.saveProfile()

@@ -55,3 +55,32 @@
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "zsB-8h-eMM"; */
 "zsB-8h-eMM.text" = "Etiket";
+
+/* Calibration Header Label*/
+"Ue1-PO-CMJ.text" = "Kalibrering";
+
+/* Calibration Description Label */
+"FoX-Ym-qv1.text" = "Vælg frekvens, afspil lyden ved maximum amplitude, indtast den observerede max dB, indtast den ønskede output dB værdi og afspil lyden for at kontrollere om det er korrekt.";
+
+/* Calibration Play Button */
+"oh8-9s-vqf.normalTitle" = "Afspil";
+
+/* Calibration Play At Max Button */
+"9cA-8B-OHL.normalTitle" = "Afspil ved max";
+
+/* Class = "UISegmentedControl"; 7Bk-xp-2bC.segmentTitles[0] = "Left Ear"; ObjectID = "7Bk-xp-2bC"; */
+"7Bk-xp-2bC.segmentTitles[0]" = "Venstre Øre";
+
+/* Class = "UISegmentedControl"; 7Bk-xp-2bC.segmentTitles[1] = "Right Ear"; ObjectID = "7Bk-xp-2bC"; */
+"7Bk-xp-2bC.segmentTitles[1]" = "Højre Øre";
+
+/* Class = "UITextField"; placeholder = "dB for playback"; ObjectID = "1XBC-9h-kgg"; */
+"XBC-9h-kgg.placeholder" = "dB til afspilning";
+
+/* Class = "UITextField"; placeholder = "Set max dB"; ObjectID = "OlZ-Ua-9tz"; */
+"OlZ-Ua-9tz.placeholder" = "Sæt max dB";
+
+/* Class = "UIButton"; normalTitle = "Calibrate Volume"; ObjectID = "LyN-OC-Nwl"; */
+"LyN-OC-Nwl.normalTitle" = "Kalibrer Volumen";
+
+

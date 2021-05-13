@@ -53,3 +53,6 @@
 
 "profile.notSave" = "Profilen blev ikke gemt!";
 
+"alert.warning" = "Advarsel";
+
+"alert.description.lost-data" = "Alt data vil blive tabt hvis du fortsætter";

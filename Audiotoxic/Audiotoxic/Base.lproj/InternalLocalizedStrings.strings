@@ -52,3 +52,7 @@
 "profile.save" = "Profile saved!";
 
 "profile.notSave" = "Profile not saved!";
+
+"alert.warning" = "Warning";
+
+"alert.description.lost-data" = "All data will be lost if you proceed";

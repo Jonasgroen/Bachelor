@@ -12,8 +12,13 @@ class ProfileViewController: UIViewController {
     let vc = TabBarViewController()
     let profile = Profile()
     
+    private let stringTable = "InternalLocalizedStrings"
+    
     @IBAction func save(_ sender: Any) {
-        let refreshAlert = UIAlertController(title: "Warning", message: "All data will be lost if you proceed", preferredStyle: UIAlertController.Style.alert)
+        let refreshAlert = UIAlertController(
+            title: NSLocalizedString("alert.warning", tableName: stringTable, comment: ""),
+            message: NSLocalizedString("alert.description.lost-data", tableName: stringTable, comment: ""),
+            preferredStyle: UIAlertController.Style.alert)
 
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             //Handle Ok Logic here
