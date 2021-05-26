@@ -24,6 +24,7 @@
 		3F6F98D6254D909D001111BC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F98D5254D909D001111BC /* Profile.swift */; };
 		3F6F98D8254D9262001111BC /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F98D7254D9262001111BC /* Reading.swift */; };
 		3F6F98DA254D96CA001111BC /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F98D9254D96CA001111BC /* ResultTableViewCell.swift */; };
+		DD311265265E644F0071555F /* SectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD311264265E644F0071555F /* SectionManager.swift */; };
 		DDB967A22587A21300329344 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB967A12587A21300329344 /* TabBarViewController.swift */; };
 		DDB967B625891BCB00329344 /* DateAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB967B525891BCB00329344 /* DateAxisValueFormatter.swift */; };
 		DDC1E5862610C65A00A9B414 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDC1E5842610C65A00A9B414 /* DataModel.xcdatamodeld */; };
@@ -53,6 +54,7 @@
 		3F6F98D7254D9262001111BC /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		3F6F98D9254D96CA001111BC /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		75704A77556255251A50834A /* Pods_Audiotoxic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Audiotoxic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD311264265E644F0071555F /* SectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionManager.swift; sourceTree = "<group>"; };
 		DDB967A12587A21300329344 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DDB967B525891BCB00329344 /* DateAxisValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAxisValueFormatter.swift; sourceTree = "<group>"; };
 		DDC1E5852610C65A00A9B414 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				DDB967B525891BCB00329344 /* DateAxisValueFormatter.swift */,
 				3AE6CB7726247E990057D336 /* Section.swift */,
 				3A012122264925D90046253E /* AmpManager.swift */,
+				DD311264265E644F0071555F /* SectionManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				DDC1E5862610C65A00A9B414 /* DataModel.xcdatamodeld in Sources */,
 				3F6F98DA254D96CA001111BC /* ResultTableViewCell.swift in Sources */,
 				3F6F98B7254D896B001111BC /* AppDelegate.swift in Sources */,
+				DD311265265E644F0071555F /* SectionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

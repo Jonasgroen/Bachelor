@@ -8,20 +8,23 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let profile = Profile()
     
+    let sectionManager = SectionManager()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
     
-    private var sections = [Section]()
+    //private var sections = [Section]()
     
     private let stringTable = "InternalLocalizedStrings"
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSections()
+        sectionManager.loadSections()
         
         scrollView.addSubview(tableView)
         tableView.delegate = self
@@ -33,11 +36,11 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return sectionManager.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = sections[section]
+        let section = sectionManager.sections[section]
         
         if(section.isExpanded){
             return 2
@@ -51,11 +54,11 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                  for: indexPath)
         
         if(indexPath.row == 0){
-            cell.textLabel?.text = sections[indexPath.section].title
+            cell.textLabel?.text = sectionManager.sections[indexPath.section].title
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18.0)
         } else {
             cell.textLabel?.font = UIFont.systemFont(ofSize: 16.0)
-            cell.textLabel?.text = sections[indexPath.section].description
+            cell.textLabel?.text = sectionManager.sections[indexPath.section].description
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = .byWordWrapping
         }
@@ -67,30 +70,9 @@ class InfoViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         
         if(indexPath.row == 0){
-            sections[indexPath.section].isExpanded = !sections[indexPath.section].isExpanded
+            sectionManager.sections[indexPath.section].isExpanded = !sectionManager.sections[indexPath.section].isExpanded
             tableView.reloadSections([indexPath.section], with: .none)
         }
-    }
-    
-    func loadSections(){
-        
-        sections = [
-            Section(title: NSLocalizedString("section.title.how-to-use-this-app", tableName: stringTable, comment: ""),
-                    description: NSLocalizedString("section.description.how-to-use-this-app", tableName: stringTable, comment: "")),
-            Section(title: NSLocalizedString("section.title.ototoxic-drug", tableName: stringTable, comment: ""),
-                    description: NSLocalizedString("section.description.ototoxic-drug", tableName: stringTable, comment: "")),
-            Section(title: NSLocalizedString("section.title.signs-symptoms",
-                    tableName: stringTable, comment: ""),
-                    description: NSLocalizedString("section.description.signs-symptoms", tableName: stringTable, comment: "")),
-            Section(title: NSLocalizedString("section.title.diagnosis", tableName: stringTable, comment: ""),
-                    description: NSLocalizedString("section.description.diagnosis", tableName: stringTable, comment: "")),
-            Section(title: NSLocalizedString("section.title.treatment", tableName: stringTable, comment: ""),
-                    description: NSLocalizedString("section.description.treatment", tableName: stringTable, comment: "")),
-            Section(title: NSLocalizedString("section.title.audiotoxic-app", tableName: stringTable, comment: ""),
-                    description: NSLocalizedString("section.description.audiotoxic-app", tableName: stringTable, comment: "")),
-            Section(title: NSLocalizedString("section.title.read-more", tableName: stringTable, comment: ""),
-                    description: NSLocalizedString("section.description.read-more", tableName: stringTable, comment: ""))
-        ]
     }
     
 }
