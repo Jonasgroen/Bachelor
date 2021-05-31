@@ -1,11 +1,3 @@
-//
-//  SectionManager.swift
-//  Audiotoxic
-//
-//  Created by Jonas Sigerseth Grøn on 26/05/2021.
-//  Copyright © 2021 sdu.dk. All rights reserved.
-//
-
 import Foundation
 
 class SectionManager{

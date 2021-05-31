@@ -74,7 +74,7 @@ class ResultDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isLandscape = landscapeOrNah()
+        isLandscape = isOrientationLandscape()
         createGraph()
         drawGraph()
     }
@@ -109,17 +109,11 @@ class ResultDetailsViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        isLandscape = landscapeOrNah()
+        isLandscape = isOrientationLandscape()
         drawGraph()
     }
     
-    func landscapeOrNah() -> Bool{
-        var landscape: Bool
-        if UIDevice.current.orientation.isLandscape {
-            landscape = true
-        } else {
-            landscape = false
-        }
-        return landscape
+    func isOrientationLandscape() -> Bool{
+        return UIDevice.current.orientation.isLandscape
     }
 }
